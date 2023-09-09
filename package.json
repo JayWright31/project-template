@@ -1,8 +1,8 @@
 {
-  "name": "project-tamplate",
+  "name": "project-template",
   "type": "module",
   "scripts": {
-    "set": "concurrently \"npm install\" \"cd api && npm install \" ",
+    "set": "concurrently \"npm install\" \"cd api && npm install \" \"cd ui && npm install\"",
     "start": "concurrently \"cd api && npm run start \" \"cd ui && npm start\"",
     "start-api": "cd api && npm run start",
     "start-ui": "cd ui && npm start",
