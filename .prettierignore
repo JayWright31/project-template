@@ -1,0 +1,12 @@
+.vscode
+.idea
+target
+coverage
+playwright-report
+.prettierignore
+*.png
+*.jpg
+*.production
+*.ico
+.gitalias
+.gitignore

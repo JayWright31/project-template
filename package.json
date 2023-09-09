@@ -1,0 +1,24 @@
+{
+  "name": "project-tamplate",
+  "type": "module",
+  "scripts": {
+    "set": "concurrently \"npm install\" \"cd api && npm install \" ",
+    "start": "concurrently \"cd api && npm run start \" \"cd ui && npm start\"",
+    "start-api": "cd api && npm run start",
+    "start-ui": "cd ui && npm start",
+    "format-check": "concurrently  \"cd api && npm run format-check-api\" \"cd ui && npm run format-check-ui\"",
+    "format": "concurrently \"cd api && npm run format-api\" \"cd ui && npm run format-ui\"",
+    "lint-ui": "cd ui && npm run lint",
+    "lint-api": "cd api && ./mvnw pmd:check",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@prettier/plugin-xml": "2.2.0",
+    "concurrently": "7.6.0",
+    "prettier-plugin-java": "2.1.0"
+  },
+  "devDependencies": {
+    "husky": "8.0.3",
+    "lint-staged": "13.2.2"
+  }
+}
