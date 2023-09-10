@@ -1,0 +1,68 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+  maven: circleci/maven@1.4.1
+
+jobs:
+  style-check-ui:
+    working_directory: ui
+    docker:
+      - image: cimg/node:16.13.2
+    resource_class: small
+    steps:
+      - checkout:
+          path: ~/project
+      - node/install-packages:
+          cache-version: v2
+      - run: npm run format-check-ui
+
+  test-ui:
+    working_directory: ui
+    docker:
+      - image: cimg/node:16.13.2
+    resource_class: small
+    steps:
+      - checkout:
+          path: ~/project
+      - node/install-packages:
+          cache-version: v2
+      - run: npm run build
+
+  style-check-api:
+    working_directory: api
+    executor:
+      name: maven/default
+      tag: "17.0-node"
+    resource_class: small
+    steps:
+      - checkout:
+          path: ~/project
+      - node/install-packages:
+          cache-version: v2
+      - run: npm run format-check-api
+
+  test-api:
+    working_directory: api
+    executor:
+      name: maven/default
+      tag: "17.0"
+    resource_class: small
+    steps:
+      - checkout:
+          path: ~/project
+      - maven/with_cache:
+          steps:
+            - run: mvn test
+
+workflows:
+  test:
+    jobs:
+      - style-check-ui
+      - test-ui:
+          requires:
+            - style-check-ui
+      - style-check-api
+      - test-api:
+          requires:
+            - style-check-api
