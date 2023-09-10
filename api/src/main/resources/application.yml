@@ -20,3 +20,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+jwt:
+  key: 9faa372517ac1d389758d3750fc07acf00f542277f26fec1ce4593e93f64338
