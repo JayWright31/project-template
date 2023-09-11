@@ -1,0 +1,4 @@
+[alias]
+    ticket = "!f() { bash ./alias/switch.sh \"$1\"; }; f"
+    nb = "!f() { bash ./alias/new-branch.sh $@; }; f"
+    
