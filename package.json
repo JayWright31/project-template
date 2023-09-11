@@ -15,7 +15,7 @@
   "dependencies": {
     "@prettier/plugin-xml": "2.2.0",
     "concurrently": "7.6.0",
-    "prettier-plugin-java": "2.1.0"
+    "google-java-format": "1.1.0"
   },
   "devDependencies": {
     "husky": "^8.0.3",

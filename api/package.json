@@ -1,11 +1,10 @@
 {
   "devDependencies": {
-    "prettier": "2.8.4",
-    "prettier-plugin-java": "2.1.0"
+    "google-java-format": "1.1.0"
   },
   "scripts": {
     "start": "./mvnw spring-boot:run",
-    "format-check-api": "npx prettier -c .",
-    "format-api": "npx prettier -w ."
+    "format-check-api": "google-java-format -n .",
+    "format-api": "google-java-format -i ."
   }
 }

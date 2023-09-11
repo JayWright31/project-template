@@ -1,18 +1,15 @@
 package com.jaywright.template.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import java.time.OffsetDateTime;
+import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.OffsetDateTime;
-import java.util.UUID;
 
 @ToString
 @Getter
@@ -20,36 +17,31 @@ import java.util.UUID;
 @MappedSuperclass
 public abstract class BaseEntity {
 
-    @ToString.Include
-    @Id
-    @GeneratedValue
-    protected UUID id;
+  @ToString.Include @Id @GeneratedValue protected UUID id;
 
-    @CreationTimestamp
-    private OffsetDateTime createdDate;
+  @CreationTimestamp private OffsetDateTime createdDate;
 
-    @UpdateTimestamp
-    private OffsetDateTime modifiedDate;
+  @UpdateTimestamp private OffsetDateTime modifiedDate;
 
-    protected BaseEntity() {
-        this.id = UUID.randomUUID();
-        this.createdDate = OffsetDateTime.now();
-        this.modifiedDate = OffsetDateTime.now();
+  protected BaseEntity() {
+    this.id = UUID.randomUUID();
+    this.createdDate = OffsetDateTime.now();
+    this.modifiedDate = OffsetDateTime.now();
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    } else if (!(obj instanceof BaseEntity)) {
+      return false;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        } else if (!(obj instanceof BaseEntity)) {
-            return false;
-        }
+    return id.equals(((BaseEntity) obj).id);
+  }
 
-        return id.equals(((BaseEntity) obj).id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
+  @Override
+  public int hashCode() {
+    return id.hashCode();
+  }
 }
