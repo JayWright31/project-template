@@ -11,15 +11,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 public class TemplateApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TemplateApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(TemplateApplication.class, args);
+  }
 
-	@Bean
-	CommandLineRunner commandLineRunner(UserRepository userRepository, PasswordEncoder encoder) {
-		return args -> {
-			userRepository.save(new User("tapple@example.com", "Tim", "Apple", encoder.encode("password")));
-		};
-	}
-
+  @Bean
+  CommandLineRunner commandLineRunner(UserRepository userRepository, PasswordEncoder encoder) {
+    return args -> {
+      userRepository.save(
+          new User("tapple@example.com", "Tim", "Apple", encoder.encode("password")));
+    };
+  }
 }

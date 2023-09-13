@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jaywright</groupId>
-	<artifactId>template</artifactId>
+	<artifactId>EventLink</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>template</name>
 	<description>Spring Boot template project</description>
@@ -54,6 +54,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -75,12 +80,12 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>3.20.0</version>
 				<configuration>
-						<targetJdk>17</targetJdk>
-						<printFailingErrors>true</printFailingErrors>
-						<includeTests>true</includeTests>
-						<analysisCache>true</analysisCache>
+					<targetJdk>17</targetJdk>
+					<printFailingErrors>true</printFailingErrors>
+					<includeTests>true</includeTests>
+					<analysisCache>true</analysisCache>
 				</configuration>
-		</plugin>
+			</plugin>
 		</plugins>
 	</build>
 
