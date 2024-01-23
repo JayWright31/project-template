@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jaywright</groupId>
-	<artifactId>EventLink</artifactId>
+	<artifactId>Template</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>template</name>
 	<description>Spring Boot template project</description>
