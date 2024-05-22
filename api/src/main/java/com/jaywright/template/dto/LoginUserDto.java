@@ -1,3 +1,5 @@
 package com.jaywright.template.dto;
 
-public record LoginUserDto(String username, String firstName, String lastName, String token) {}
+import java.util.UUID;
+
+public record LoginUserDto(UUID id, String username, String firstName, String lastName, String token) {}

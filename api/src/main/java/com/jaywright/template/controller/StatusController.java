@@ -1,6 +1,9 @@
 package com.jaywright.template.controller;
 
 import java.security.Principal;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,13 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/status")
 public class StatusController {
 
-  @GetMapping("/check")
-  public String getStatus() {
-    return "OK";
-  }
-
-  @GetMapping("/authenticate")
-  public String getStatus(Principal principal) {
-    return "Hello, " + principal.getName();
+  @GetMapping
+  public ResponseEntity<?> getStatus() {
+    return new ResponseEntity<>(HttpStatus.OK);
   }
 }

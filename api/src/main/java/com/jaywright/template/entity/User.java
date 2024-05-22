@@ -14,7 +14,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class User extends BaseEntity {
-
   private String username;
   private String firstName;
   private String lastName;

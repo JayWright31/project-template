@@ -13,6 +13,6 @@ public class UserMapper {
   }
 
   public LoginUserDto mapUserToLoginUserDto(User user, String token) {
-    return new LoginUserDto(user.getUsername(), user.getFirstName(), user.getLastName(), token);
+    return new LoginUserDto(user.getId(), user.getUsername(), user.getFirstName(), user.getLastName(), token);
   }
 }

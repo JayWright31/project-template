@@ -46,7 +46,7 @@ public class SecurityConfig {
             auth ->
                 auth.requestMatchers(antMatcher("/h2-console/**"))
                     .permitAll()
-                    .requestMatchers(antMatcher("/status/check"))
+                    .requestMatchers(antMatcher("/status"))
                     .permitAll()
                     .requestMatchers(antMatcher("/auth/**"))
                     .permitAll()
